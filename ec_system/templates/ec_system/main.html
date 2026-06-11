@@ -7,21 +7,21 @@
     <body>
         <h2>商品の検索を行います。</h2>
 
-        <form action="" method=""></form>
+        <form action="{% url 'ec_system:search_result' %}" method="POST">
+            {% csrf_token %}
             <label>カテゴリ:</label>
-            <select name="categories" id="category-select">
+            <select name="category" id="category-select">
             <option value="all">すべて</option>
-            <option value="cap">帽子</option>
-            <option value="bag">鞄</option>
+            <option value="帽子">帽子</option>
+            <option value="鞄">鞄</option>
             </select>
 
             <label>キーワード:</label>
             <input type="text" name="keyword" size="15" />
             <input type="submit" value="検索"/>
-        </form>
-        <br>
+        </form><br>
 
-        <a href="">ショッピングカートを見る</a><br>
+        <a href="">ショッピングカートを見る</a><br><br>
         <a href="">ログイン</a>
     </body>
 </html>
