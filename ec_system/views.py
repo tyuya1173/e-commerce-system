@@ -30,3 +30,10 @@ class SearchResult(View):
             'item': queryset
         }
         return render(request, 'ec_system/searchResult.html', context)
+    
+class Login(View):
+    def get(self, request):
+        return render(request, 'ec_system/login.html')
+
+    def post(self, request):
+        pass

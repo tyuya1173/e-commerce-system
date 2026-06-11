@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>会員ログイン</title>
+    </head>
+    <body>
+        <h2>ログインしてください。</h2>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>会員ID</th>
+                    <td><input type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <th>パスワード</th>
+                    <td><input type="text" name="password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="ログイン"></td>
+                </tr>
+            </table>
+        </form><br>
+        <a href="">会員情報</a>
+    </body>
+</html>
