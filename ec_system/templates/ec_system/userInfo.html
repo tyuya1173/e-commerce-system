@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>会員情報の確認</title>
+    </head>
+    <body>
+        <h2>会員情報</h2>
+        <table border="1">
+            <tr>
+                <th>会員ID</th>
+                <td>{{ login_user.user_id }}</td>
+            </tr>
+            <tr>
+                <th>パスワード</th>
+                <td>表示なし</td>
+            </tr>
+            <tr>
+                <th>お名前</th>
+                <td>{{ login_user.name }}</td>
+            </tr>
+            <tr>
+                <th>ご住所</th>
+                <td>{{ login_user.address }}</td>
+            </tr>
+        </table>
+        <br>
+        <a href="">会員情報の変更</a><br>
+        <a href="{% url 'ec_system:index' %}">商品検索へ</a>
+    </body>
+</html>
