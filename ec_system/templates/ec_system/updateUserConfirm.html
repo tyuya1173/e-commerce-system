@@ -7,10 +7,10 @@
     <body>
         <h2>以下の会員情報で更新しますか？</h2>
 
-        <form action="{% url 'ec_system:update_commit' %}" method="post">
+        <form action="{% url 'ec_system:update_user_commit' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="password_confirm" value="{{ form.password_confirm.value|default_if_none:'' }}">
-            <table>
+            <table border="1">
                 <tr>
                     <th>会員ID</th>
                     <td>{{ login_user.user_id }}</td>

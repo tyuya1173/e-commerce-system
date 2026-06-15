@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>会員情報の確認</title>
+        <title>会員情報の更新完了</title>
     </head>
     <body>
-        <h2>会員情報</h2>
+        <h2>以下の会員情報で更新しました。</h2>
+
         <table border="1">
             <tr>
                 <th>会員ID</th>
@@ -25,7 +26,6 @@
             </tr>
         </table>
         <br>
-        <a href="{% url 'ec_system:update_user' %}">会員情報の変更</a><br>
         <a href="{% url 'ec_system:index' %}">商品検索へ</a>
     </body>
 </html>

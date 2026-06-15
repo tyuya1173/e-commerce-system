@@ -16,8 +16,6 @@ def index(request):
     return render(request, "ec_system/main.html", {"form": form, "login_user": login_user})
 
 class SearchResult(View):
-    def get(self):
-        pass
 
     def post(self, request):
         keyword = request.POST["keyword"]
@@ -160,4 +158,25 @@ class UpdateUser(View):
                 "login_user": login_user
             }
             return render(request, "ec_system/updateUserConfirm.html", context)
+        return render(request, "ec_system/updateUser.html", {"form": form, "login_user": login_user})
+    
+class UpdateUserCommit(View):
+    def post(self, request):
+        user_id = request.session.get("user_id")
+        if user_id:
+            login_user = Account.objects.filter(user_id=user_id).first()
+        else:
+            login_user = None
+
+        if login_user is None:
+            return redirect("ec_system:login")
+        form = forms.UpdateUserForm(request.POST)
+        if form.is_valid():
+            with transaction.atomic():
+                login_user.name = form.cleaned_data["name"]
+                login_user.address = form.cleaned_data["address"]
+                if form.cleaned_data["password"]:
+                    login_user.password = form.cleaned_data["password"]
+                login_user.save()
+            return render(request, "ec_system/updateUserCommit.html", {"login_user": login_user})
         return render(request, "ec_system/updateUser.html", {"form": form, "login_user": login_user})

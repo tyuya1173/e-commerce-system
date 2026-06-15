@@ -26,11 +26,9 @@
         {% if login_user %}
         <hr>
         <p>ようこそ {{ login_user.name }} さん</p>
-        <ul>
-            <li><a href="{% url 'ec_system:user_info' %}">会員情報の確認</a></li>
-            <li><a href="">会員情報の変更</a></li>
-            <li><a href="{% url 'ec_system:logout' %}">ログアウト</a></li>
-        </ul>
+            <a href="{% url 'ec_system:user_info' %}">会員情報の確認</a><br>
+            <a href="{% url 'ec_system:update_user' %}">会員情報の変更</a><br>
+            <a href="{% url 'ec_system:logout' %}">ログアウト</a><br>
         {% else %}
         <a href="{% url 'ec_system:login' %}">ログイン</a>
         {% endif %}
