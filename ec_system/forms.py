@@ -76,3 +76,25 @@ class RegisterForm(forms.Form):
         if pw and pw2 and pw != pw2:
             self.add_error("password_confirm", "パスワードが一致しません")
         return cleaned
+    
+class UpdateUserForm(forms.Form):
+    password = forms.CharField(
+        label="パスワード", max_length=256, required=False,
+    )
+    password_confirm = forms.CharField(
+        label="パスワード(確認)", max_length=256, required=False,
+    )
+    name = forms.CharField(
+        label="お名前", max_length=128,
+    )
+    address = forms.CharField(
+        label="ご住所", max_length=256,
+    )
+
+    def clean(self):
+        cleaned = super().clean()
+        pw = cleaned.get("password")
+        pw2 = cleaned.get("password_confirm")
+        if (pw or pw2) and pw != pw2:
+            self.add_error("password_confirm", "パスワードが一致しません")
+        return cleaned

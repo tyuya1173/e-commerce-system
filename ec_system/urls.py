@@ -12,5 +12,7 @@ urlpatterns = [
     path("cart/", views.Cart.as_view(), name="cart"),
     path("logout/", views.Logout.as_view(), name="logout"),
     path("registerUser/", views.RegisterUser.as_view(), name="register_user"),
-    path("register/commit/", views.RegisterCommit.as_view(), name="register_commit")
+    path("register/commit/", views.RegisterCommit.as_view(), name="register_commit"),
+    path("user/", views.UserInfo.as_view(), name="user_info"),
+    path("user/update/", views.UpdateUser.as_view(), name="update_user"),
 ]

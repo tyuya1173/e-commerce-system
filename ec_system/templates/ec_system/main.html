@@ -27,7 +27,7 @@
         <hr>
         <p>ようこそ {{ login_user.name }} さん</p>
         <ul>
-            <li><a href="">会員情報の確認</a></li>
+            <li><a href="{% url 'ec_system:user_info' %}">会員情報の確認</a></li>
             <li><a href="">会員情報の変更</a></li>
             <li><a href="{% url 'ec_system:logout' %}">ログアウト</a></li>
         </ul>

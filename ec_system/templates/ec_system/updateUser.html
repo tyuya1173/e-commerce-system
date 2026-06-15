@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>会員情報</title>
+    </head>
+    <body>
+        <h2 class="mb-4">会員情報</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <div>{{ form.non_field_errors.0 }}</div>
+        {% endif %}
+        <div>
+            <label>会員ID:</label>
+            <div>{{ login_user.user_id }}</div>
+        </div>
+        {% for field in form %}
+        <div>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.errors %}
+            <div>{{ field.errors.0 }}</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">変更</button>
+    </form>
+
+    <a href="{% url 'ec_system:withdraw_confirm' %}">退会する</a><br>
+    <a href="{% url 'ec_system:index' %}">商品検索へ</a>
+    </body>
+</html>
